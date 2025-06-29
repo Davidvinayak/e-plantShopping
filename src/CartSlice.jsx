@@ -13,6 +13,7 @@ export const CartSlice = createSlice({
       if (existingItem) {
         existingItem.quantity++;
       } else {
+        state.items.push({ name, image, cost, quantity: 1 });
       }
     },
 
@@ -32,8 +33,6 @@ export const CartSlice = createSlice({
   },
 });
 
-// ✅ Export action creators
 export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
 
-// ✅ Export reducer to use in store.js
 export default CartSlice.reducer;
